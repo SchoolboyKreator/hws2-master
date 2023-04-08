@@ -5,15 +5,18 @@
 }
 
 .secondary {
+    background-color: burlywood;
 }
 
 .default {
 }
 
 .red {
+    background-color: red;
 }
 
 .default:hover {
+    background-color: blanchedalmond;
 }
 
 .red:hover {
@@ -33,4 +36,5 @@
 }
 
 .button:disabled {
+    background-color: lightgray;
 }

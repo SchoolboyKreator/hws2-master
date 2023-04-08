@@ -1,15 +1,15 @@
-import React, {ChangeEvent, KeyboardEvent} from 'react'
+import React, {ChangeEvent, ChangeEventHandler, KeyboardEvent} from 'react'
 import s from './Greeting.module.css'
 
 type GreetingPropsType = {
     name: string // need to fix any
-    setNameCallback: (e: ChangeEvent<HTMLInputElement>) => void// need to fix any
+    setNameCallback: (e: ChangeEvent<HTMLInputElement>) => void // need to fix any
     addUser: ()=>void // need to fix any
-    onBlur: (e: ChangeEvent<HTMLInputElement>) => void // need to fix any
-    onEnter: (e: KeyboardEvent<HTMLInputElement>) => void // need to fix any
+    onBlur: (e: React.FocusEvent<HTMLInputElement>) => void // need to fix any
+    onEnter: (e: React.KeyboardEvent<HTMLInputElement>) => void // need to fix any
     error: string // need to fix any
     totalUsers: number // need to fix any
-    lastUserName?: string // need to fix any
+    lastUserName?: string | undefined // need to fix any
 }
 
 // презентационная компонента (для верстальщика)
@@ -25,7 +25,7 @@ const Greeting: React.FC<GreetingPropsType> = (
         lastUserName,
     } // деструктуризация пропсов
 ) => {
-    const inputClass = s.errorInput // need to fix with (?:)
+    const inputClass = error ? s.errorInput : s.input // need to fix with (?:)
 
     return (
         <div id={'hw3-form'} className={s.greetingForm}>
@@ -60,7 +60,6 @@ const Greeting: React.FC<GreetingPropsType> = (
                     add
                 </button>
             </div>
-
             {lastUserName && (
                 <div className={s.greeting}>
                     Привет <span id={'hw3-last-user'}>{lastUserName}</span>!
