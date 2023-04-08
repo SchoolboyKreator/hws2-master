@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+.App {
+    --header_height: 60px;
+    font-family: 'Montserrat', serif;
+}
+
+.hw {
+
+}
+
+.hwTitle {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 27px;
+}
