@@ -14,9 +14,11 @@
 }
 
 .nav a:hover {
+    color: #0059b3;
 }
 
 .nav a.active {
+    color: wheat;
 }
 .close {
 }
