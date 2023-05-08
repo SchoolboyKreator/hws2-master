@@ -10,7 +10,6 @@ type DefaultRadioPropsType = DetailedHTMLProps<
     InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
 >
-// тип пропсов обычного спана
 type DefaultSpanPropsType = DetailedHTMLProps<
     HTMLAttributes<HTMLSpanElement>,
     HTMLSpanElement
@@ -44,7 +43,6 @@ const SuperRadio: React.FC<SuperRadioPropsType> = ({
 
     const mappedOptions: any[] = options
         ? options.map((o) => {
-            // console.log("super radio"+ name )
             return (
 
                 <label key={name + '-' + o.id} className={s.label}>
@@ -52,7 +50,6 @@ const SuperRadio: React.FC<SuperRadioPropsType> = ({
                         id={id + '-input-' + o.value}
                         className={finalRadioClassName}
                         type={'radio'}
-                        // name, checked, value делают студенты
                         value={o.value}
                         name={name}
                         checked={o.value === value}

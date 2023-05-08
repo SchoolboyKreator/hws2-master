@@ -24,7 +24,6 @@ const SuperSelect: React.FC<SuperSelectPropsType> = ({
                                                      }) => {
     const mappedOptions: any[] = options
         ? options.map((o) => {
-            // console.log("super select"+ name )
 
             return <option
                 id={'hw7-option-' + o.value}
