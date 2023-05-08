@@ -24,8 +24,7 @@ const SuperSelect: React.FC<SuperSelectPropsType> = ({
                                                      }) => {
     const mappedOptions: any[] = options
         ? options.map((o) => {
-            // console.log(o)
-            // debugger
+
             return <option
                 id={'hw7-option-' + o.id}
                 className={s.option}
@@ -35,7 +34,7 @@ const SuperSelect: React.FC<SuperSelectPropsType> = ({
                 {o.value}
             </option>
         })
-        : [] // map options with key
+        : []
 
     const onChangeCallback = (e: ChangeEvent<HTMLSelectElement>) => {
         // делают студенты
