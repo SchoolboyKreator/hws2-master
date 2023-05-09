@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useReducer, useState} from 'react'
 import {homeWorkReducer} from './bll/homeWorkReducer'
 import s from './HW8.module.css'
 import s2 from '../../s1-main/App.module.css'
@@ -28,29 +28,25 @@ const initialPeople: UserType[] = [
 ]
 
 const HW8 = () => {
-    const [people, setPeople] = useState<UserType[]>(initialPeople)
+    const [people, dispatchToPeople] = useReducer(homeWorkReducer, initialPeople )
     const [currentSort, setCurrentSort] = useState('')
 
     const finalPeople = people.map((u: UserType) => <User key={u._id} u={u}/>)
+    console.log(people)
+    // console.log(finalPeople)
 
     const sortUp = () => {
-        setPeople(
-            homeWorkReducer(initialPeople, {type: 'sort', payload: 'up'})
-        ) // в алфавитном порядке a.name > b.name
         setCurrentSort('up')
+        dispatchToPeople({type: 'sort', payload: 'up'}) // в алфавитном порядке a.name > b.name
     }
 
     const sortDown = () => {
-        setPeople(
-            homeWorkReducer(initialPeople, {type: 'sort', payload: 'down'})
-        ) // в обратном порядке a.name < b.name}
         setCurrentSort('down')
+        dispatchToPeople({type: 'sort', payload: 'down'} ) // в обратном порядке a.name < b.name}
     }
     const check18 = () => {
-        setPeople(
-            homeWorkReducer(initialPeople, {type: 'check', payload: 18})
-        ) // совершеннолетние
         setCurrentSort('18')
+        dispatchToPeople({type: 'check', payload: 18}) // совершеннолетние
     }
 
     return (
